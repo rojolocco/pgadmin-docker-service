@@ -46,13 +46,15 @@ docker-compose -f docker-compose.dev.yaml up -d
 ```
 
 This will:
+
 - Use the latest pgAdmin 4 image
 - Load environment variables from `.env.dev`
 - Map port 8082 on your host to port 80 in the container
-- Access pgAdmin at http://localhost:8082
+- Access pgAdmin at <http://localhost:8082>
 
 Default development credentials:
-- Email: admin@admin.com
+
+- Email: <admin@admin.com>
 - Password: admin123
 
 ### Production Environment
@@ -64,6 +66,7 @@ docker-compose up -d
 ```
 
 This will:
+
 - Use pgAdmin 4 version 9.3
 - Load environment variables from `.env`
 - Connect to the external caddy_network (assumes reverse proxy configuration)
