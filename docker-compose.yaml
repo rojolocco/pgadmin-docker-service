@@ -1,0 +1,19 @@
+services:
+  pgadmin:
+    image: dpage/pgadmin4:9.3
+    container_name: pgadmin
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - caddy_network
+
+volumes:
+  pgadmin_data:
+    driver: local
+
+networks:
+  caddy_network:
+    external: true
