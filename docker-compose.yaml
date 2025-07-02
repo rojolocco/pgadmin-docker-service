@@ -8,12 +8,14 @@ services:
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     networks:
-      - caddy_network
+      # - caddy_network
+      - traefik_network
 
 volumes:
   pgadmin_data:
     driver: local
 
 networks:
-  caddy_network:
+  # caddy_network:
+  traefik_network:
     external: true
