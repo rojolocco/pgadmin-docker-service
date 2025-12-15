@@ -13,15 +13,15 @@ services:
     deploy:
       resources:
         limits:
-          # Límite máximo de memoria (uso ocasional)
-          memory: 256M
+          # Límite máximo de memoria (aumentado para evitar SIGKILL)
+          memory: 512M
           # Límite máximo de CPU (uso ocasional)  
-          cpus: '0.15'
+          cpus: '0.2'
         reservations:
-          # Memoria reservada mínima (uso ocasional)
-          memory: 64M
+          # Memoria reservada mínima (aumentada para estabilidad)
+          memory: 128M
           # CPU reservado mínimo (uso ocasional)
-          cpus: '0.02'
+          cpus: '0.05'
 
 volumes:
   pgadmin_data:
