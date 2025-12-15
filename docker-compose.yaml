@@ -1,8 +1,8 @@
 services:
   pgadmin:
-    image: dpage/pgadmin4:9.10
+    image: dpage/pgadmin4:9.11
     container_name: pgadmin
-    restart: always
+    restart: "no"
     env_file:
       - .env
     volumes:
@@ -10,6 +10,18 @@ services:
     networks:
       # - caddy_network
       - traefik_network
+    deploy:
+      resources:
+        limits:
+          # Límite máximo de memoria (uso ocasional)
+          memory: 256M
+          # Límite máximo de CPU (uso ocasional)  
+          cpus: '0.15'
+        reservations:
+          # Memoria reservada mínima (uso ocasional)
+          memory: 64M
+          # CPU reservado mínimo (uso ocasional)
+          cpus: '0.02'
 
 volumes:
   pgadmin_data:
