@@ -1,0 +1,20 @@
+services:
+  pgadmin:
+    image: dpage/pgadmin4:9.11
+    container_name: pgadmin
+    restart: "no"
+    env_file:
+      - .env
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - internal_network
+
+volumes:
+  pgadmin_data:
+
+networks:
+  internal_network:
+    external: true

@@ -10,18 +10,18 @@ services:
     networks:
       - caddy_network
       - internal_network
-    deploy:
-      resources:
-        limits:
-          # Límite máximo de memoria (aumentado para evitar SIGKILL)
-          memory: 512M
-          # Límite máximo de CPU (uso ocasional)  
-          cpus: '0.2'
-        reservations:
-          # Memoria reservada mínima (aumentada para estabilidad)
-          memory: 128M
-          # CPU reservado mínimo (uso ocasional)
-          cpus: '0.05'
+    # deploy:
+    #   resources:
+    #     limits:
+    #       # Límite máximo de memoria (aumentado para evitar SIGKILL)
+    #       memory: 512M
+    #       # Límite máximo de CPU (uso ocasional)  
+    #       cpus: '0.2'
+    #     reservations:
+    #       # Memoria reservada mínima (aumentada para estabilidad)
+    #       memory: 128M
+    #       # CPU reservado mínimo (uso ocasional)
+    #       cpus: '0.05'
 
 volumes:
   pgadmin_data:
