@@ -5,11 +5,15 @@ services:
     restart: "no"
     env_file:
       - .env
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     networks:
-      # - caddy_network
-      - traefik_network
+      - caddy_network
+      - internal_network
     deploy:
       resources:
         limits:
@@ -25,9 +29,9 @@ services:
 
 volumes:
   pgadmin_data:
-    driver: local
 
 networks:
-  # caddy_network:
-  traefik_network:
+  caddy_network:
+    external: true
+  internal_network:
     external: true
