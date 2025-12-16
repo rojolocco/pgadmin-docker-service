@@ -10,18 +10,18 @@ services:
     networks:
       - caddy_network
       - internal_network
-    deploy:
-      resources:
-        limits:
-          # Límite máximo de memoria aumentado para VPS
-          memory: 1G
-          # Límite máximo de CPU aumentado para consultas complejas
-          cpus: '0.5'
-        reservations:
-          # Memoria reservada aumentada para estabilidad
-          memory: 256M
-          # CPU reservado aumentado
-          cpus: '0.1'
+    # deploy:
+    #   resources:
+    #     limits:
+    #       # Límite máximo de memoria aumentado para VPS
+    #       memory: 1G
+    #       # Límite máximo de CPU aumentado para consultas complejas
+    #       cpus: '0.5'
+    #     reservations:
+    #       # Memoria reservada aumentada para estabilidad
+    #       memory: 256M
+    #       # CPU reservado aumentado
+    #       cpus: '0.1'
 
 volumes:
   pgadmin_data:
