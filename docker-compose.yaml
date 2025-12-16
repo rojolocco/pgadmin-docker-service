@@ -5,10 +5,6 @@ services:
     restart: "no"
     env_file:
       - .env
-    security_opt:
-      - no-new-privileges:true
-    cap_drop:
-      - ALL
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     networks:
