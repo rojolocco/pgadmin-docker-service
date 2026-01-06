@@ -1,6 +1,6 @@
 services:
   pgadmin:
-    image: dpage/pgadmin4:9.11
+    image: dpage/pgadmin4:latest
     container_name: pgadmin
     restart: "no"
     env_file:
@@ -8,26 +8,11 @@ services:
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     networks:
-      - caddy_network
       - internal_network
-    # deploy:
-    #   resources:
-    #     limits:
-    #       # Límite máximo de memoria aumentado para VPS
-    #       memory: 1G
-    #       # Límite máximo de CPU aumentado para consultas complejas
-    #       cpus: '0.5'
-    #     reservations:
-    #       # Memoria reservada aumentada para estabilidad
-    #       memory: 256M
-    #       # CPU reservado aumentado
-    #       cpus: '0.1'
 
 volumes:
   pgadmin_data:
 
 networks:
-  caddy_network:
-    external: true
   internal_network:
     external: true
